@@ -1,0 +1,139 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: JSSM
+scopeName: source.jssm
+fileTypes: [jssm, jssm_state]
+uuid: 2bb22b55-e811-4383-9929-ae6d0ab92aca
+
+patterns:
+
+- comment: block comment
+  begin: /\*
+  captures:
+    '0':
+      name: punctuation.definition.comment.mn
+  end: \*/
+  name: comment.block.jssm
+
+- comment: block comment
+  begin: "//"
+  end: '$'
+  name: comment.line.jssm
+
+
+
+- comment: js outcalls
+  name: keyword.other
+  begin: '\${'
+  captures:
+    '0':
+      name: entity.name.function
+  end: '}'
+
+
+
+- comment: semver
+  name: constant.numeric
+  match: ([0-9]*)(\.)([0-9]*)(\.)([0-9]*)
+
+
+
+- comment: jssm language tokens
+  name: constant.language.jssmLanguage
+  match: graph_layout(\s*)(:)
+
+- comment: jssm language tokens
+  name: constant.language.jssmLanguage
+  match: machine_name(\s*)(:)
+
+- comment: jssm language tokens
+  name: constant.language.jssmLanguage
+  match: machine_version(\s*)(:)
+
+- comment: jssm language tokens
+  name: constant.language.jssmLanguage
+  match: jssm_version(\s*)(:)
+
+
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.legal_legal
+  match: <->
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.legal_none
+  match: <-
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.none_legal
+  match: ->
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.main_main
+  match: <=>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.none_main
+  match: =>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.main_none
+  match: <=
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.forced_forced
+  match: <~>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.none_forced
+  match: ~>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.forced_none
+  match: <~
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.legal_main
+  match: <-=>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.main_legal
+  match: <=->
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.legal_forced
+  match: <-~>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.forced_legal
+  match: <~->
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.main_forced
+  match: <=~>
+
+- comment: transitions
+  name: keyword.control.transition.jssmArrow.forced_main
+  match: <~=>
+
+
+
+- comment: edge probability annotation
+  name: constant.numeric.jssmProbability
+  match: ([0-9]+)%
+
+
+
+- comment: action annotation
+  name: constant.character.jssmAction
+  match: \'[^']*\'
+
+
+
+- comment: jssm label annotation
+  name: entity.name.tag.jssmLabel.doublequoted
+  match: \"[^"]*\"
+
+- comment: jssm label annotation
+  name: entity.name.tag.jssmLabel.atom
+  match: ([a-zA-Z0-9_.+&()#@!?,])
