@@ -1,4 +1,8 @@
-# sublime-jssm
+# DEPRECATED
+
+Please use [Sublime-FSL](https://github.com/StoneCypher/sublime-fsl) instead
+
+## sublime-jssm
 Sublime highlighter for JSSM files.  Highlight your state machines!
 
 ## What does it look like?
